@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'myExplorer-app',
-        template: "<div>This is my Component</div>"
+        templateUrl: './app/app.component.html'
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

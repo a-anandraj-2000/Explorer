@@ -7,20 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var treeview_component_1 = require("./tree/treeview.component");
-var AppModule = (function () {
-    function AppModule() {
+var treenode_1 = require("./treenode");
+var TreeViewComponent = (function () {
+    function TreeViewComponent() {
+        this.model = new treenode_1.treenode("1", "drive", "Root", ["Ambrose", "Anand"]);
     }
-    return AppModule;
+    return TreeViewComponent;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        declarations: [app_component_1.AppComponent, treeview_component_1.TreeViewComponent],
-        bootstrap: [app_component_1.AppComponent],
-        imports: [platform_browser_1.BrowserModule]
+TreeViewComponent = __decorate([
+    core_1.Component({
+        selector: 'tree-node',
+        templateUrl: './app/tree/treeview.component.html'
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], TreeViewComponent);
+exports.TreeViewComponent = TreeViewComponent;
+//# sourceMappingURL=treeview.component.js.map
