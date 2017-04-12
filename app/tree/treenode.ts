@@ -1,11 +1,10 @@
-export class treenode
+export class TreeNode
 {
 
     constructor(
             private id:string,
             private type:string,
             private folderName: string,
-            private subfolders:string[]
             )
     {}
 
@@ -15,6 +14,8 @@ export class treenode
         {
             case "drive":
             return "drive.png";
+            case "folder":
+            return "folder.png";
             default:
             return "folder.png";
         }

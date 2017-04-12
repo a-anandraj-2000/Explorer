@@ -1,21 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var treenode = (function () {
-    function treenode(id, type, folderName, subfolders) {
+var TreeNode = (function () {
+    function TreeNode(id, type, folderName) {
         this.id = id;
         this.type = type;
         this.folderName = folderName;
-        this.subfolders = subfolders;
     }
-    treenode.prototype.getImage = function () {
+    TreeNode.prototype.getImage = function () {
         switch (this.type) {
             case "drive":
                 return "drive.png";
+            case "folder":
+                return "folder.png";
             default:
                 return "folder.png";
         }
     };
-    return treenode;
+    return TreeNode;
 }());
-exports.treenode = treenode;
+exports.TreeNode = TreeNode;
 //# sourceMappingURL=treenode.js.map

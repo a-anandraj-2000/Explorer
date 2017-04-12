@@ -1,9 +1,13 @@
 
 <div class="container">
     <div> 
-        <img src="./app/images/arrow_right.png"> 
-        <img src="./app/images/{{model.getImage()}}"> 
-        <span>{{model.folderName}}</span>
+        <img src="./app/images/arrow_right.png" (click)="ShowSubNodes()"> 
+        <img src="./app/images/{{Node.getImage()}}"> 
+        <span>{{Node.folderName}}</span>
+        
+    </div>
+    <div class="container" *ngFor="let Node of SubNodes">
+        <tree-node [Node]="Node">Loading Tree</tree-node>
     </div>
 </div>
 

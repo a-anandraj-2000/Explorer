@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {treenode} from './treenode';
+import {Component,Input} from '@angular/core';
+import {TreeNode} from './treenode';
 
 @Component(
 {
@@ -9,5 +9,21 @@ import {treenode} from './treenode';
 )
 export class TreeViewComponent
 {
-    model = new treenode("1","drive","Root",["Ambrose","Anand"]);
+    JSON: JSON;
+    public constructor()
+    {
+        this.JSON = JSON;
+    }
+    
+    @Input() Node : TreeNode;
+    SubNodes : TreeNode[];
+    ShowSubNodes()
+    {
+        this.SubNodes =  [new TreeNode("2","folder","Ambrose"),new TreeNode("3","folder","Anand")];
+    }
+
+    getImage()
+    {
+        //this.Node.getImage()
+    }
 }

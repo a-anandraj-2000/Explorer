@@ -1,4 +1,5 @@
 import{Component} from '@angular/core';
+import {TreeNode} from './tree/treenode';
 
 @Component
 ({
@@ -6,4 +7,11 @@ import{Component} from '@angular/core';
     templateUrl:'./app/app.component.html'
     
 })
-export class AppComponent{}
+export class AppComponent{
+ JSON: JSON;
+    public constructor()
+    {
+        this.JSON = JSON;
+    }
+    RootNode : TreeNode = new TreeNode("1","drive","Root");
+}
