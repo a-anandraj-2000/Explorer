@@ -7,10 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var treenode_1 = require("./treenode");
+exports.folderName = ["Ambrose", "Anandraj", "Shekinah", "Nancy", "Jeremy", "Immaculate", "Felcita", "Sophia", "Dominic", "Gabirini"];
 var TreeService = (function () {
     function TreeService() {
     }
     TreeService.prototype.getSubfolders = function () {
+        exports.SubNodes = [];
+        var num = Math.round(Math.random() * 5);
+        console.log("Randome number is " + num);
+        for (var i = 0; i < num; i++) {
+            var obj = new treenode_1.TreeNode(i.toString(), "folder", exports.folderName[num + i]);
+            exports.SubNodes.push(obj);
+        }
+        return exports.SubNodes;
     };
     return TreeService;
 }());

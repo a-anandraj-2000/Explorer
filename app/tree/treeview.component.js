@@ -11,12 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var treenode_1 = require("./treenode");
+var treeview_service_1 = require("./treeview.service");
 var TreeViewComponent = (function () {
-    function TreeViewComponent() {
+    function TreeViewComponent(treeService) {
+        this.treeService = treeService;
         this.JSON = JSON;
     }
     TreeViewComponent.prototype.ShowSubNodes = function () {
-        this.SubNodes = [new treenode_1.TreeNode("2", "folder", "Ambrose"), new treenode_1.TreeNode("3", "folder", "Anand")];
+        this.SubNodes = this.treeService.getSubfolders();
     };
     TreeViewComponent.prototype.getImage = function () {
     };
@@ -31,7 +33,7 @@ TreeViewComponent = __decorate([
         selector: 'tree-node',
         templateUrl: './app/tree/treeview.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [treeview_service_1.TreeService])
 ], TreeViewComponent);
 exports.TreeViewComponent = TreeViewComponent;
 //# sourceMappingURL=treeview.component.js.map

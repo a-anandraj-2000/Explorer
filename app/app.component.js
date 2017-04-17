@@ -11,17 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var treenode_1 = require("./tree/treenode");
+var treeview_service_1 = require("./tree/treeview.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.RootNode = new treenode_1.TreeNode("1", "drive", "Root");
         this.JSON = JSON;
+        console.log("Component ctor");
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'myExplorer-app',
-        templateUrl: './app/app.component.html'
+        templateUrl: './app/app.component.html',
+        providers: [treeview_service_1.TreeService]
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);

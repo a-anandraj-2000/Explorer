@@ -1,5 +1,6 @@
 import {Component,Input} from '@angular/core';
 import {TreeNode} from './treenode';
+import {TreeService} from './treeview.service';
 
 @Component(
 {
@@ -10,7 +11,7 @@ import {TreeNode} from './treenode';
 export class TreeViewComponent
 {
     JSON: JSON;
-    public constructor()
+    public constructor(private treeService: TreeService) 
     {
         this.JSON = JSON;
     }
@@ -19,7 +20,8 @@ export class TreeViewComponent
     SubNodes : TreeNode[];
     ShowSubNodes()
     {
-        this.SubNodes =  [new TreeNode("2","folder","Ambrose"),new TreeNode("3","folder","Anand")];
+        //this.SubNodes =  [new TreeNode("2","folder","Ambrose"),new TreeNode("3","folder","Anand")];
+        this.SubNodes = this.treeService.getSubfolders();
     }
 
     getImage()
