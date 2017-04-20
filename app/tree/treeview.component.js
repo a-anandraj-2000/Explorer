@@ -18,7 +18,14 @@ var TreeViewComponent = (function () {
         this.JSON = JSON;
     }
     TreeViewComponent.prototype.ShowSubNodes = function () {
-        this.SubNodes = this.treeService.getSubfolders();
+        if (!this.Node.isOpen) {
+            this.SubNodes = this.treeService.getSubfolders();
+            this.Node.isOpen = true;
+        }
+        else {
+            this.SubNodes = null;
+            this.Node.isOpen = false;
+        }
     };
     TreeViewComponent.prototype.getImage = function () {
     };

@@ -1,12 +1,16 @@
-
-<div class="container">
-    <div> 
-        <img src="./app/images/arrow_right.png" (click)="ShowSubNodes()"> 
+<style>
+.treeview1 {}
+.treeview2 {}
+.row{margin-left: 15px;border:solid 1px yellow}
+</style>
+<div class="treeview row">
+    <div class="treeview2"> 
+        <img src="./app/images/{{Node.getImageStatus()}}" (click)="ShowSubNodes()"> 
         <img src="./app/images/{{Node.getImage()}}"> 
         <span>{{Node.folderName}}</span>
         
     </div>
-    <div class="container" *ngFor="let Node of SubNodes">
+    <div *ngFor="let Node of SubNodes">
         <tree-node [Node]="Node">Loading Tree</tree-node>
     </div>
 </div>

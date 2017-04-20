@@ -15,7 +15,6 @@ var TreeService = (function () {
     TreeService.prototype.getSubfolders = function () {
         exports.SubNodes = [];
         var num = Math.round(Math.random() * 5);
-        console.log("Randome number is " + num);
         for (var i = 0; i < num; i++) {
             var obj = new treenode_1.TreeNode(i.toString(), "folder", exports.folderName[num + i]);
             exports.SubNodes.push(obj);

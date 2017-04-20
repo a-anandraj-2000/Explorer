@@ -1,4 +1,5 @@
 import{Component} from '@angular/core';
+import{Compiler} from '@angular/core';
 import {TreeNode} from './tree/treenode';
 import {TreeService} from './tree/treeview.service';
 
@@ -12,10 +13,10 @@ export class AppComponent{
  JSON: JSON;
  subfolders : TreeNode[];
 
-    public constructor()
+    public constructor(private _compiler : Compiler)
     {
+        _compiler.clearCache();
         this.JSON = JSON;
-        console.log("Component ctor");
         //this.subfolders = this.treeService.getSubfolders();
     }
     RootNode : TreeNode = new TreeNode("1","drive","Root");

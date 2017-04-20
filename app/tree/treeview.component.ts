@@ -11,17 +11,34 @@ import {TreeService} from './treeview.service';
 export class TreeViewComponent
 {
     JSON: JSON;
+    @Input() Node : TreeNode;
+    SubNodes : TreeNode[];
+
     public constructor(private treeService: TreeService) 
     {
         this.JSON = JSON;
+        
+        
     }
     
-    @Input() Node : TreeNode;
-    SubNodes : TreeNode[];
+    
     ShowSubNodes()
     {
-        //this.SubNodes =  [new TreeNode("2","folder","Ambrose"),new TreeNode("3","folder","Anand")];
-        this.SubNodes = this.treeService.getSubfolders();
+           // Make the current node status as Open
+           if(!this.Node.isOpen)
+           {
+            this.SubNodes = this.treeService.getSubfolders();
+            this.Node.isOpen = true;
+           }
+           else
+           {
+               this.SubNodes = null;
+            this.Node.isOpen = false;
+           }
+
+
+        
+        
     }
 
     getImage()

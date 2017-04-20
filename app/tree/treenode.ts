@@ -5,8 +5,13 @@ export class TreeNode
             private id:string,
             private type:string,
             private folderName: string,
+            public isOpen : boolean = false,
+            
             )
-    {}
+{}
+    
+
+
 
     getImage()
     {
@@ -18,6 +23,17 @@ export class TreeNode
             return "folder.png";
             default:
             return "folder.png";
+        }
+    }
+    getImageStatus()
+    {
+        if(this.isOpen)
+        {
+            return "arrow_down.png";
+        }
+        else
+        {
+            return "arrow_right.png";
         }
     }
 }
