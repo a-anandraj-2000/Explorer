@@ -17,8 +17,6 @@ export class TreeViewComponent
     public constructor(private treeService: TreeService) 
     {
         this.JSON = JSON;
-        
-        
     }
     
     
