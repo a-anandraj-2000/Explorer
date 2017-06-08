@@ -19,6 +19,10 @@ export class TreeViewComponent
         this.JSON = JSON;
     }
     
+    ShowGrid(Id:number)
+    {
+        
+    }
     
     ShowSubNodes()
     {
@@ -33,10 +37,6 @@ export class TreeViewComponent
                this.SubNodes = null;
             this.Node.isOpen = false;
            }
-
-
-        
-        
     }
 
     getImage()

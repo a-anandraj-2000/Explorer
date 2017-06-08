@@ -10,26 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var core_2 = require("@angular/core");
-var treenode_1 = require("./tree/treenode");
-var treeview_service_1 = require("./tree/treeview.service");
-var AppComponent = (function () {
-    function AppComponent(_compiler) {
-        this._compiler = _compiler;
-        this.RootNode = new treenode_1.TreeNode("1", "drive", "Root");
-        this.GridId = this.RootNode.id;
-        _compiler.clearCache();
-        this.JSON = JSON;
+var grid_1 = require("./grid");
+var GridComponent = (function () {
+    function GridComponent() {
+        this.GridData = new grid_1.Grid("1", "Ambrose Anandraj", "42", "Engineer");
     }
-    return AppComponent;
+    return GridComponent;
 }());
-AppComponent = __decorate([
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], GridComponent.prototype, "GridId", void 0);
+GridComponent = __decorate([
     core_1.Component({
-        selector: 'myExplorer-app',
-        templateUrl: './app/app.component.html',
-        providers: [treeview_service_1.TreeService]
-    }),
-    __metadata("design:paramtypes", [core_2.Compiler])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+        selector: "grid-control",
+        templateUrl: './app/grid/grid.component.html'
+    })
+], GridComponent);
+exports.GridComponent = GridComponent;
+//# sourceMappingURL=grid.component.js.map

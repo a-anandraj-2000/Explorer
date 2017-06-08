@@ -2,7 +2,7 @@ export class TreeNode
 {
 
     constructor(
-            private id:string,
+            public id:string,
             private type:string,
             private folderName: string,
             public isOpen : boolean = false,

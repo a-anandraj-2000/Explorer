@@ -20,4 +20,5 @@ export class AppComponent{
         //this.subfolders = this.treeService.getSubfolders();
     }
     RootNode : TreeNode = new TreeNode("1","drive","Root");
+    GridId : string = this.RootNode.id;
 }

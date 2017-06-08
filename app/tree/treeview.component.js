@@ -17,6 +17,8 @@ var TreeViewComponent = (function () {
         this.treeService = treeService;
         this.JSON = JSON;
     }
+    TreeViewComponent.prototype.ShowGrid = function (Id) {
+    };
     TreeViewComponent.prototype.ShowSubNodes = function () {
         if (!this.Node.isOpen) {
             this.SubNodes = this.treeService.getSubfolders();
