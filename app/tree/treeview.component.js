@@ -20,8 +20,12 @@ var TreeViewComponent = (function () {
     TreeViewComponent.prototype.ShowGrid = function (Id) {
     };
     TreeViewComponent.prototype.ShowSubNodes = function () {
+        var _this = this;
         if (!this.Node.isOpen) {
-            this.SubNodes = this.treeService.getSubfolders();
+            this.treeService.getSubfolders(this.Node.id)
+                .subscribe(function (res) {
+                _this.SubNodes = res;
+            });
             this.Node.isOpen = true;
         }
         else {

@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var treeview_component_1 = require("./tree/treeview.component");
 var grid_component_1 = require("./grid/grid.component");
+var http_1 = require("@angular/http");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +21,7 @@ AppModule = __decorate([
     core_1.NgModule({
         declarations: [app_component_1.AppComponent, treeview_component_1.TreeViewComponent, grid_component_1.GridComponent],
         bootstrap: [app_component_1.AppComponent],
-        imports: [platform_browser_1.BrowserModule]
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule]
     })
 ], AppModule);
 exports.AppModule = AppModule;

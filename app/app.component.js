@@ -16,7 +16,7 @@ var treeview_service_1 = require("./tree/treeview.service");
 var AppComponent = (function () {
     function AppComponent(_compiler) {
         this._compiler = _compiler;
-        this.RootNode = new treenode_1.TreeNode("1", "drive", "Root");
+        this.RootNode = new treenode_1.TreeNode("1", "drive", "Continent");
         this.GridId = this.RootNode.id;
         _compiler.clearCache();
         this.JSON = JSON;

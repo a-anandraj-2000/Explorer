@@ -1,6 +1,7 @@
 import {Component,Input} from '@angular/core';
 import {TreeNode} from './treenode';
 import {TreeService} from './treeview.service';
+import {Observable} from "rxjs/Rx";
 
 @Component(
 {
@@ -12,6 +13,7 @@ export class TreeViewComponent
 {
     JSON: JSON;
     @Input() Node : TreeNode;
+    //SubNodes : Observable<TreeNode[]>;
     SubNodes : TreeNode[];
 
     public constructor(private treeService: TreeService) 
@@ -29,13 +31,18 @@ export class TreeViewComponent
            // Make the current node status as Open
            if(!this.Node.isOpen)
            {
-            this.SubNodes = this.treeService.getSubfolders();
+            this.treeService.getSubfolders(this.Node.id)
+            .subscribe(res => 
+                {   
+                    this.SubNodes = res;
+                }
+            );
             this.Node.isOpen = true;
            }
            else
            {
-               this.SubNodes = null;
-            this.Node.isOpen = false;
+                this.SubNodes = null;
+                this.Node.isOpen = false;
            }
     }
 

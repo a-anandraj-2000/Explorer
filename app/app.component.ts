@@ -3,6 +3,7 @@ import{Compiler} from '@angular/core';
 import {TreeNode} from './tree/treenode';
 import {TreeService} from './tree/treeview.service';
 
+
 @Component
 ({
     selector:'myExplorer-app',
@@ -19,6 +20,6 @@ export class AppComponent{
         this.JSON = JSON;
         //this.subfolders = this.treeService.getSubfolders();
     }
-    RootNode : TreeNode = new TreeNode("1","drive","Root");
+    RootNode : TreeNode = new TreeNode("1","drive","Continent");
     GridId : string = this.RootNode.id;
 }

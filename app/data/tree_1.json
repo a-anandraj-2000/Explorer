@@ -1,0 +1,8 @@
+[
+    {"id":"2","type":"folder","folderName":"Asia"},
+    {"id":"3","type":"folder","folderName":"Australia"},
+    {"id":"4","type":"folder","folderName":"Africa"},
+    {"id":"5","type":"folder","folderName":"Europe"},
+    {"id":"6","type":"folder","folderName":"North America"},
+    {"id":"7","type":"folder","folderName":"South America"}
+]

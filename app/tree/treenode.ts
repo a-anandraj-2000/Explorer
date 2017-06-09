@@ -4,7 +4,7 @@ export class TreeNode
     constructor(
             public id:string,
             private type:string,
-            private folderName: string,
+            public folderName: string,
             public isOpen : boolean = false,
             
             )
