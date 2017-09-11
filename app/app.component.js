@@ -13,21 +13,27 @@ var core_1 = require("@angular/core");
 var core_2 = require("@angular/core");
 var treenode_1 = require("./tree/treenode");
 var treeview_service_1 = require("./tree/treeview.service");
+var grid_service_1 = require("./grid/grid.service");
 var AppComponent = (function () {
     function AppComponent(_compiler) {
         this._compiler = _compiler;
-        this.RootNode = new treenode_1.TreeNode("1", "drive", "Continent");
-        this.GridId = this.RootNode.id;
+        this.GridId = "9";
+        this.RootNode = new treenode_1.TreeNode("1", "root", "Continent");
+        this.Root = this;
         _compiler.clearCache();
         this.JSON = JSON;
+        console.log("this is from app.component" + this.GridId);
     }
+    AppComponent.prototype.UpdateChange = function () {
+        console.log("Event Triggered on Change");
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'myExplorer-app',
         templateUrl: './app/app.component.html',
-        providers: [treeview_service_1.TreeService]
+        providers: [treeview_service_1.TreeService, grid_service_1.GridService]
     }),
     __metadata("design:paramtypes", [core_2.Compiler])
 ], AppComponent);

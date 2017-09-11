@@ -12,12 +12,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var treenode_1 = require("./treenode");
 var treeview_service_1 = require("./treeview.service");
+var grid_service_1 = require("../grid/grid.service");
 var TreeViewComponent = (function () {
-    function TreeViewComponent(treeService) {
+    function TreeViewComponent(treeService, gridService) {
         this.treeService = treeService;
+        this.gridService = gridService;
         this.JSON = JSON;
     }
-    TreeViewComponent.prototype.ShowGrid = function (Id) {
+    TreeViewComponent.prototype.getStyle = function () {
+        if (this.Node.type == "country") {
+            return "hand";
+        }
+        return "";
+    };
+    TreeViewComponent.prototype.LoadGrid = function () {
+        if (this.Node.type != "country")
+            return;
+        this.Root.GridId = this.Node.id;
+        console.log("Load Grid for" + this.Root.GridId);
+        this.Root.UpdateChange();
     };
     TreeViewComponent.prototype.ShowSubNodes = function () {
         var _this = this;
@@ -41,12 +54,16 @@ __decorate([
     core_1.Input(),
     __metadata("design:type", treenode_1.TreeNode)
 ], TreeViewComponent.prototype, "Node", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Object)
+], TreeViewComponent.prototype, "Root", void 0);
 TreeViewComponent = __decorate([
     core_1.Component({
         selector: 'tree-node',
         templateUrl: './app/tree/treeview.component.html'
     }),
-    __metadata("design:paramtypes", [treeview_service_1.TreeService])
+    __metadata("design:paramtypes", [treeview_service_1.TreeService, grid_service_1.GridService])
 ], TreeViewComponent);
 exports.TreeViewComponent = TreeViewComponent;
 //# sourceMappingURL=treeview.component.js.map

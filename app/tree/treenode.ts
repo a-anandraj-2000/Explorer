@@ -3,7 +3,7 @@ export class TreeNode
 
     constructor(
             public id:string,
-            private type:string,
+            public type:string,
             public folderName: string,
             public isOpen : boolean = false,
             
@@ -17,12 +17,14 @@ export class TreeNode
     {
         switch(this.type)
         {
-            case "drive":
-            return "drive.png";
-            case "folder":
-            return "folder.png";
+            case "root":
+            return "earth.png";
+            case "continent":
+            return "continent.png";
+            case "country":
+            return "country.png";
             default:
-            return "folder.png";
+            return "country.png";
         }
     }
     getImageStatus()

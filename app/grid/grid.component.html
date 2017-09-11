@@ -1,12 +1,14 @@
  <table border="1">
         <thead>
             <th>Name</th>
-            <th>Age</th>
-            <th>Occupation</th>
+            <th>Capital</th>
+            <th>Area</th>
+            <th>Language</th>
         </thead>
-        <tr>
-            <td>{{GridData.Name}}</td>
-            <td>{{GridData.Age}}</td>
-            <td>{{GridData.Occupation}}</td>
+        <tr *ngFor="let data of GridData">
+            <td>{{data.Name}}</td>
+            <td>{{data.Capital}}</td>
+            <td>{{data.Area}}</td>
+            <td>{{data.Language}}</td>
         </tr>
     </table>

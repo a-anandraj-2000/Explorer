@@ -10,12 +10,14 @@ var TreeNode = (function () {
     }
     TreeNode.prototype.getImage = function () {
         switch (this.type) {
-            case "drive":
-                return "drive.png";
-            case "folder":
-                return "folder.png";
+            case "root":
+                return "earth.png";
+            case "continent":
+                return "continent.png";
+            case "country":
+                return "country.png";
             default:
-                return "folder.png";
+                return "country.png";
         }
     };
     TreeNode.prototype.getImageStatus = function () {

@@ -10,11 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var grid_1 = require("./grid");
+var http_1 = require("@angular/http");
+var grid_service_1 = require("./grid.service");
 var GridComponent = (function () {
-    function GridComponent() {
-        this.GridData = new grid_1.Grid("1", "Ambrose Anandraj", "42", "Engineer");
+    function GridComponent(http, gridService) {
+        this.http = http;
+        this.gridService = gridService;
     }
+    GridComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.gridService.getGridData(this.GridId)
+            .subscribe(function (res) {
+            _this.GridData = res;
+        });
+        console.log("This is from Grid Component On Init " + this.GridId);
+    };
     return GridComponent;
 }());
 __decorate([
@@ -25,7 +35,8 @@ GridComponent = __decorate([
     core_1.Component({
         selector: "grid-control",
         templateUrl: './app/grid/grid.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [http_1.Http, grid_service_1.GridService])
 ], GridComponent);
 exports.GridComponent = GridComponent;
 //# sourceMappingURL=grid.component.js.map

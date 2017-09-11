@@ -18,7 +18,11 @@ export class TreeService
     getSubfolders(Id:string) 
     {
      let url : string = "./app/data/tree_" + Id + ".json";
-
+     let folderType = "continent";
+     if(parseInt(Id) > 1)
+     {
+         folderType = "country"
+     }
      return this.http.get(url)
      .map((data) => {return data.json()})
      .map(
@@ -29,7 +33,7 @@ export class TreeService
             {
                 nodes.forEach((node) =>
                 {
-                    result.push(new TreeNode(node.id,"folder",node.folderName));
+                    result.push(new TreeNode(node.id,folderType,node.folderName));
                 })
                 return result;
             }

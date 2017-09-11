@@ -2,16 +2,17 @@
 .treeview1 {}
 .treeview2 {}
 .row{margin-left: 15px;}
+.hand {cursor:pointer;cursor:hand}
 </style>
 <div class="treeview row">
     <div class="treeview2"> 
         <img src="./app/images/{{Node.getImageStatus()}}" (click)="ShowSubNodes()"> 
         <img src="./app/images/{{Node.getImage()}}"> 
-        <span>{{Node.folderName}}</span>
+        <span [class]="getStyle()" (click)="LoadGrid()">{{Node.folderName}}</span>
         
     </div>
     <div *ngFor="let Node of SubNodes">
-        <tree-node [Node]="Node">Loading Tree</tree-node>
+        <tree-node [Node]="Node" [Root]="Root">Loading Tree</tree-node>
     </div>
 </div>
 

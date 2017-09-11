@@ -10,37 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var treenode_1 = require("./treenode");
 var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/catch");
-var TreeService = (function () {
-    function TreeService(http) {
+var Grid_1 = require("./Grid");
+var GridService = (function () {
+    function GridService(http) {
         this.http = http;
     }
-    TreeService.prototype.getSubfolders = function (Id) {
-        var url = "./app/data/tree_" + Id + ".json";
-        var folderType = "continent";
-        if (parseInt(Id) > 1) {
-            folderType = "country";
-        }
+    GridService.prototype.getGridData = function (Id) {
+        var url = "./app/data/grid_" + Id + ".json";
         return this.http.get(url)
             .map(function (data) { return data.json(); })
             .map(function (nodes) {
             var result = [];
             if (nodes) {
                 nodes.forEach(function (node) {
-                    result.push(new treenode_1.TreeNode(node.id, folderType, node.folderName));
+                    result.push(new Grid_1.Grid(node.Id, node.Name, node.Capital, node.Area, node.Language));
                 });
                 return result;
             }
-        }).catch(function (error) { console.log("File not found"); return []; });
+        }).catch(function (error) { console.log("File not found."); return []; });
     };
-    return TreeService;
+    return GridService;
 }());
-TreeService = __decorate([
+GridService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], TreeService);
-exports.TreeService = TreeService;
-//# sourceMappingURL=treeview.service.js.map
+], GridService);
+exports.GridService = GridService;
+//# sourceMappingURL=grid.service.js.map
