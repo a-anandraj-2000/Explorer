@@ -4,6 +4,11 @@ import {TreeNode} from './tree/treenode';
 import {TreeService} from './tree/treeview.service';
 import {GridService} from './grid/grid.service';
 
+/*
+    Author: Ambrose Anandraj
+    Component: AppComponent
+    Description: This is a App Component where we have two components TreeNode on left side and Grid on the right side
+*/
 @Component
 ({
     selector:'myExplorer-app',
@@ -13,22 +18,11 @@ import {GridService} from './grid/grid.service';
 export class AppComponent{
     JSON: JSON;
     subfolders : TreeNode[];
-    GridId : string="9";
+    GridId : string="8";
     public constructor(private _compiler : Compiler)
     {
         _compiler.clearCache();
         this.JSON = JSON;
-        //this.GridId ="8";
-
-        console.log("this is from app.component" + this.GridId);
-        //this.subfolders = this.treeService.getSubfolders();
     }
     RootNode : TreeNode = new TreeNode("1","root","Continent");
-    Root = this;
-
-    UpdateChange()
-    {
-        console.log("Event Triggered on Change")
-    }
-    
 }

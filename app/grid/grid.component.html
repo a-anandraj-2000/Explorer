@@ -1,9 +1,12 @@
+ <style>
+ .header {font-weight:bold;background-color: midnightblue;color:white}
+ </style>
  <table border="1">
         <thead>
-            <th>Name</th>
-            <th>Capital</th>
-            <th>Area</th>
-            <th>Language</th>
+            <th class="header" width="100">Name</th>
+            <th class="header" width="100">Capital</th>
+            <th class="header" width="100">Area</th>
+            <th class="header" width="100">Language</th>
         </thead>
         <tr *ngFor="let data of GridData">
             <td>{{data.Name}}</td>

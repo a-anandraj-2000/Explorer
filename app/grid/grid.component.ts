@@ -10,28 +10,24 @@ import{GridService} from "./grid.service"
 export class GridComponent implements OnInit{
 
     @Input() GridId : string;
-   //GridData : Grid = new Grid("1","Country Name","Capital","1234","English");
     GridData: Array<Grid>;
-    //GridData: Array<Grid>=[new Grid("1","India","New Delhi","20000","Tamil"),new Grid("2","China","Beijing","20000","Chinese")];
     
+
 constructor(private http:Http,private gridService :GridService)
 {
-    //console.log("Construnctor in Grid Component" + this.GridId);
-    //let GridData : Array<Grid>=[];
-    //GridData.push(new Grid("1","India","New Delhi","20000","Tamil"));
-    //GridData.push(new Grid("2","China","Bejing","20000","Chinese"));
 }
-    
+
 ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    // This will help to load the Grid for the first time.
+    this.UpdateChange();
+}
+// Method which will be called from the Tree Node to load the Grid Data
+    UpdateChange()
+    {
     this.gridService.getGridData(this.GridId)
         .subscribe(res =>
         {
             this.GridData = res;
         });
-    console.log("This is from Grid Component On Init " + this.GridId);
-}
-
-
+    }
 }

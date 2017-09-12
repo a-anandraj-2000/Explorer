@@ -1,8 +1,14 @@
-import {Component,Input} from '@angular/core';
+import {Component,Input,Output,EventEmitter} from '@angular/core';
 import {TreeNode} from './treenode';
 import {TreeService} from './treeview.service';
 import {GridService} from '../grid/grid.service'; 
 import {Observable} from "rxjs/Rx";
+
+/*
+    Author: Ambrose Anandraj
+    Component: TreeView
+    Description: This is a Tree Node Component which is responsible for single node in Tree View
+*/
 
 @Component(
 {
@@ -13,9 +19,11 @@ import {Observable} from "rxjs/Rx";
 export class TreeViewComponent
 {
     JSON: JSON;
+    // To pass the node for thier sub nodes
     @Input() Node : TreeNode;
+    // To pass the Grid Id here so that we can load Grid data on click of each node
     @Input() Root: any;
-    //SubNodes : Observable<TreeNode[]>;
+    // Children of the current node
     SubNodes : TreeNode[];
 
     public constructor(private treeService: TreeService,private gridService : GridService) 
@@ -23,6 +31,7 @@ export class TreeViewComponent
         this.JSON = JSON;
     }
     
+    // Method which will decide the cursor based on the Node Type
     getStyle() 
     {
         if(this.Node.type == "country")
@@ -31,24 +40,18 @@ export class TreeViewComponent
         }
         return "";
     }
+
+
+   // To load the grid value based on the selection of the node    
     LoadGrid()
     {
         // If it is not country then do nothing
         if(this.Node.type != "country")
         return;
-        
         this.Root.GridId = this.Node.id;
-        
-        console.log("Load Grid for" + this.Root.GridId)
         this.Root.UpdateChange();
-
-        // this.gridService.getGridData(this.Node.id)
-        // .subscribe(res =>
-        // {
-            
-        // }
-        // )
     }
+    // To load the Children for the current node
     ShowSubNodes()
     {
            // Make the current node status as Open
@@ -67,10 +70,5 @@ export class TreeViewComponent
                 this.SubNodes = null;
                 this.Node.isOpen = false;
            }
-    }
-
-    getImage()
-    {
-        //this.Node.getImage()
     }
 }

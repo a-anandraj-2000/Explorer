@@ -18,12 +18,14 @@ var GridComponent = (function () {
         this.gridService = gridService;
     }
     GridComponent.prototype.ngOnInit = function () {
+        this.UpdateChange();
+    };
+    GridComponent.prototype.UpdateChange = function () {
         var _this = this;
         this.gridService.getGridData(this.GridId)
             .subscribe(function (res) {
             _this.GridData = res;
         });
-        console.log("This is from Grid Component On Init " + this.GridId);
     };
     return GridComponent;
 }());

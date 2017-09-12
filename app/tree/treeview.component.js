@@ -29,7 +29,6 @@ var TreeViewComponent = (function () {
         if (this.Node.type != "country")
             return;
         this.Root.GridId = this.Node.id;
-        console.log("Load Grid for" + this.Root.GridId);
         this.Root.UpdateChange();
     };
     TreeViewComponent.prototype.ShowSubNodes = function () {
@@ -45,8 +44,6 @@ var TreeViewComponent = (function () {
             this.SubNodes = null;
             this.Node.isOpen = false;
         }
-    };
-    TreeViewComponent.prototype.getImage = function () {
     };
     return TreeViewComponent;
 }());

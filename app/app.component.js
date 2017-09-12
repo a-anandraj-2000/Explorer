@@ -17,16 +17,11 @@ var grid_service_1 = require("./grid/grid.service");
 var AppComponent = (function () {
     function AppComponent(_compiler) {
         this._compiler = _compiler;
-        this.GridId = "9";
+        this.GridId = "8";
         this.RootNode = new treenode_1.TreeNode("1", "root", "Continent");
-        this.Root = this;
         _compiler.clearCache();
         this.JSON = JSON;
-        console.log("this is from app.component" + this.GridId);
     }
-    AppComponent.prototype.UpdateChange = function () {
-        console.log("Event Triggered on Change");
-    };
     return AppComponent;
 }());
 AppComponent = __decorate([
